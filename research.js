@@ -14,3 +14,29 @@ document.getElementById("price").innerHTML=
 }
 
 loadPrices()
+
+async function airdropProjects(){
+
+let res=await fetch("projects.json")
+
+let data=await res.json()
+
+let container=document.getElementById("airdrops")
+
+data.forEach(p=>{
+
+if(p.airdrop=="Potential"){
+
+let div=document.createElement("div")
+
+div.innerHTML=p.name+" may have future airdrop"
+
+container.appendChild(div)
+
+}
+
+})
+
+}
+
+airdropProjects()
